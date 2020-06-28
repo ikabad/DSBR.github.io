@@ -217,44 +217,60 @@ h2 {
     font-weight: 700;
     text-transform: uppercase;
     padding: 2.5px 5px;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-left: 100px;
     transition: all .3s;
 }
 
 button {
-    display: grid;
+    display: inline-flex;
     color: #fff;
     align-items: right;
     align-content: right;
-    width: 150px;
+    width: fit-content;
 }
 
 .btn-container {
     border-radius: 4px;
     grid-template-columns: repeat(1, 0.2fr);
     grid-gap: 0.5em;
-    display: grid;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     padding: 5px 10px;
-    margin-left: auto;
     transition: all .3s;
     text-align: center;
+    border-bottom: solid #26272d 1px;
+}
+
+.filter-content {
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid #26272d 1px;
+    background-color: rgb(48, 47, 47);
+    border-radius: 4px;
+}
+
+.btn-cont-titile {
+    color: white;
+    border-radius: 4px;
+    padding-top: 10px;
+    text-align: left;
 }
 
 .btn.rarity {
-    border: solid #26272d 1px;
     border-radius: 8px;
     background-color: rgb(34, 33, 33);
+    padding-top: 0px;
     padding: 15px;
     text-align: center;
-    width: 100px;
-    height: 50px;
-    margin: 1px;
+    width: auto;
+    height: auto;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .btn {
