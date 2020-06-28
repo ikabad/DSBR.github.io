@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tanjiro Kamado</title>
+    <link rel="stylesheet" type="text/css" href="css\characters-style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".filterDiv*").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+
+        $(document).ready(function() {
+
+
+            $('div#Content-Filter').find('input:checkbox').live('click', function() {
+                $('.Character-icon > div').hide();
+                $('div#Content-Filter').find('input:checked').each(function() {
+                    $('.Character-icon > div.' + $(this).attr('rel')).show();
+
+                });
+
+
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="container">
+        <div id="main">
+
+
+            <ul class="nav">
+                <div class="logo">
+                    <a href="index.html">DSBR</a>
+                </div>
+                <li> <a href="Characters.html">Characters</a></li>
+                <li> <a href="">Teams</a></li>
+                <li> <a href="">Tier List</a></li>
+                <li> <a href="">Guides</a></li>
+                <li> <a href="">Database</a></li>
+                <li> <a href="">---------</a></li>
+            </ul>
+            <div id="Content-Filter">
+                <header class="filter-header">
+                    <h3>Filters</h3>
+                    <button class="btn clear-filter active" onclick="filterSelection('all')">Reset</button>
+
+                </header>
+
+                <div class="btn-container">
+                    <button class="btn rarity" onclick="filterSelection('Gold')"> SSR</button>
+                    <button class="btn rarity" onclick="filterSelection('Silver')"> SR</button>
+                    <button class="btn rarity" onclick="filterSelection('Bronze')"> EX</button>
+                    <button class="btn rarity" onclick="filterSelection('Stone')"> R</button>
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <div class="Character">
+                <header>
+                    <h2>Demon Slayer Battle Royal Characters</h2>
+                    <input id="myInput" type="text" placeholder="Search..">
+
+
+                </header>
+
+                <ul class="Character-icon">
+                    <div class=" filterDiv Gold arts">
+                        <li>
+                            <a href="Tanjiro Kamado.html"> <img class=character-icon src="tanjiro.jpg" alt="Tanjiro Kamado" alt="SSR">Tanjiro
+                            </a>
+
+                        </li>
+                    </div>
+
+                    <div class="filterDiv Silver ">
+                        <li>
+                            <a href="Tanjiro Kamado.html"> <img class=character-icon src="tanjiro.jpg" alt="XYZNAME"> XYZNAME
+                            </a>
+
+                        </li>
+                    </div>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer id="footer">
+        <ul class="footer-content">
+            <li> <a href="">Discord</a></li>
+            <li> <a href="">Discord</a></li>
+            <li> <a href="">Discord</a></li>
+            <li> <a href="">Discord</a></li>
+            <li> <a href="">Discord</a></li>
+            <li> <a href="">Discord</a></li>
+        </ul>
+        <div class="footer-bottom">
+            THis is where footer note will be for the those who vist htis page.<br>THis page is not official fo robvious reasons.
+        </div>
+    </footer>
+
+
+
+    <script>
+        filterSelection("all")
+
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+
+                    element.className += " " + arr2[i];
+                }
+            }
+
+        }
+
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("Content-Filter");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>
